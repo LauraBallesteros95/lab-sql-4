@@ -100,3 +100,27 @@ from rental;
 select count(*) as rental_count
 from rental
 where date_format(rental_date, '%Y-%m') = date_format(date_sub(curdate(), interval 1 month), '%Y-%m');
+
+-- LAB 4
+-- Get film ratings.
+select rating from film;
+-- Get release years.
+select distinct release_year from film;
+-- Get all films with ARMAGEDDON in the title
+select * from film where title like '%ARMAGEDDON%';
+-- Get all films with APOLLO in the title
+select * from film where title like '%APOLLO%';
+-- Get all films which title ends with APOLLO.
+select * from film where title like '%APOLLO'; 
+-- Get all films with word DATE in the title.
+select * from film where title like '%DATE%';
+-- Get 10 films with the longest title.
+select * from film order by length(title) desc limit 10;
+-- Get 10 the longest films. (??)
+select * from film order by max_duration desc limit 10;
+-- How many films include Behind the Scenes content? (??)
+select count(*) as film_with_behing_scenes from film where behind_the_scenes = 'Yes';
+-- List films ordered by release year and title in alphabetical order.
+select *
+from film
+order by release_year, title;
