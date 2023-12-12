@@ -116,10 +116,15 @@ select * from film where title like '%APOLLO';
 select * from film where title like '%DATE%';
 -- Get 10 films with the longest title.
 select * from film order by length(title) desc limit 10;
--- Get 10 the longest films. (??)
-select * from film order by max_duration desc limit 10;
--- How many films include Behind the Scenes content? (??)
-select count(*) as film_with_behing_scenes from film where behind_the_scenes = 'Yes';
+-- Get 10 the longest films. 
+select title as ten_longest_films, length
+from film
+order by length desc
+limit 10;
+-- How many films include Behind the Scenes content? 
+select title as behind_the_scenes_included
+from film
+where special_features like "%BEHIND THE SCENES%";
 -- List films ordered by release year and title in alphabetical order.
 select *
 from film
